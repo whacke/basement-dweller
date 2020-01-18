@@ -88,6 +88,10 @@ void goofyTask(void* parameter){
       //activePID = true;
       //liftTarget = 0;
       }
+      else if((master.get_digital(DIGITAL_X))
+      {
+        goofy(-63);
+      }
       else
       {
         goofy(0);

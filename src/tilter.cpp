@@ -1,8 +1,7 @@
-
 #include "main.h"
 
 Motor tilter1(TILTER, MOTOR_GEARSET_18, 0, MOTOR_ENCODER_DEGREES);
-unsigned int tilterTarget = 5;
+unsigned int tilterTarget = 0;
 int tiltSpeed = 127;
 
 motor_brake_mode_e_t tiltMode = MOTOR_BRAKE_HOLD;
@@ -21,8 +20,8 @@ void tilterReset()
   tilter1.tare_position();
 }
 
-void asyncTilterTo(int tiltPoint, int speed){
-  tilter1.move_absolute(tiltPoint, speed);
+void asyncTilterTo(int tiltPoint){
+  tilterTarget = tiltPoint;
 }
 
 
@@ -71,16 +70,9 @@ void tilterOp(){
   if(master.get_digital(DIGITAL_X))
     {
       if(tilter1.get_position() < (1920/2))
-        tilter(100);
-      else if(tilter1.get_position() < (1920-(1920/3)) && tilter1.get_position() > (1920/2))
-      {
-        tilter(50);
-      }
+        tilter(127);
       else
-      {
-        tilter(40);
-        intake(-20);
-      }
+        tilterTarget = 1920;
     }
     //tiltTarget = tiltTarget+7;
   else if(master.get_digital(DIGITAL_B))

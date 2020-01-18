@@ -15,13 +15,13 @@ void curveTask(void* parameter);
 void left(int vel);
 void right(int vel);
 
-void driveAsync(int sp, int modifier);
-void turnAsync(int sp, int modifier);
-void curveAsync(int driving, int turning, int modifier);
-void drive(int sp, int mod);
-void turn(int sp, int mod);
-void curve(int d, int t, int m);
-void slowDrive(int sp, int dp);
+void driveAsync(int sp, double modifier);
+void turnAsync(int sp, double modifier);
+void curveAsync(int driving, int turning, double modifier);
+void drive(int sp, double mod);
+void turn(int sp, double mod);
+void curve(int d, int t, double m);
+void slowDrive(int sp, int dp, double mod);
 void basicDrive(int distance, int speed);
 
 

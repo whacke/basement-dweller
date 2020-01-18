@@ -7,7 +7,7 @@ void tilter(int vel);
 
 void tilterReset();
 
-void asyncTilterTo(int tiltPoint, int speed);
+void asyncTilterTo(int tiltPoint);
 
 void tilterTask(void* parameter);
 

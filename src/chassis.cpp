@@ -16,7 +16,7 @@ static int driveTarget = 0;
 static int turnTarget = 0;
 static int maxSpeed = MAX;
 static int slant = 0;
-static int spdMod = 1;
+static double spdMod = 1;
 
 
 /**************************************************/
@@ -147,14 +147,14 @@ bool isDriving(){
 /**************************************************/
 //autonomous functions
 
-void driveAsync(int sp, int modifier){
+void driveAsync(int sp, double modifier){
   reset();
   driveTarget = sp;
   driveMode = 1;
   spdMod = modifier;
 }
 
-void turnAsync(int sp, int modifier){
+void turnAsync(int sp, double modifier){
   if(mirror)
     sp = -sp; // inverted turn for blue auton
   reset();
@@ -163,7 +163,7 @@ void turnAsync(int sp, int modifier){
   spdMod = modifier;
 }
 
-void curveAsync(int driving, int turning, int modifier){
+void curveAsync(int driving, int turning, double modifier){
   reset();
   driveTarget = driving;
   turnTarget = turning;
@@ -171,25 +171,25 @@ void curveAsync(int driving, int turning, int modifier){
   spdMod = modifier;
 }
 
-void drive(int sp, int mod){
+void drive(int sp, double mod){
   driveAsync(sp, mod);
   delay(450);
   while(isDriving()) delay(20);
 }
 
-void turn(int sp, int mod){
+void turn(int sp, double mod){
   turnAsync(sp, mod);
   delay(450);
   while(isDriving()) delay(20);
 }
 
-void curve(int d, int t, int m){
+void curve(int d, int t, double m){
   curveAsync(d, t, m);
   delay(450);
   while(isDriving()) delay(20);
 }
 
-void slowDrive(int sp, int dp, int mod){
+void slowDrive(int sp, int dp, double mod){
   driveAsync(sp, mod);
 
   if(sp > 0)
