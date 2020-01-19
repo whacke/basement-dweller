@@ -4,6 +4,7 @@ Motor tilter1(TILTER, MOTOR_GEARSET_18, 0, MOTOR_ENCODER_DEGREES);
 unsigned int tilterTarget = 0;
 int tiltSpeed = 127;
 double tiltKp = 3.5;
+int prevError = 0;
 
 motor_brake_mode_e_t tiltMode = MOTOR_BRAKE_HOLD;
 
@@ -33,7 +34,6 @@ int tilterPos()
 /**************************************************/
 //task control
 void tilterTask(void* parameter){
-  int prevError = 0;
 
   while(competition::is_autonomous() == true){
     delay(20);
@@ -56,7 +56,7 @@ void tilterTask(void* parameter){
 
     //set motors
 
-    if(tilter1.get_position< (1920/2))
+    if(tilter1.get_position()< (1920/2))
       tilter(tiltSpeed);
     else
       tilter(speed);
@@ -71,7 +71,9 @@ void tilterOp(){
   if(master.get_digital(DIGITAL_X))
     {
       if(tilterPos() < (1920/2))
-        tilter(100); int prevError = 0;
+        {
+          tilter(100);
+        }
       else
       {
         int sp = 1650;
