@@ -903,7 +903,7 @@
             "-fdiagnostics-color",
             "--std=gnu++17",
             "-o",
-            "C:/Users/willh/AppData/Local/Temp/tmpw7xfims0/goofy.cpp.o",
+            "bin/goofy.cpp.o",
             "src\\goofy.cpp"
         ],
         "directory": "C:\\Users\\willh\\basement-dweller",
@@ -938,11 +938,11 @@
             "-fdiagnostics-color",
             "--std=gnu++17",
             "-o",
-            "C:/Users/willh/AppData/Local/Temp/tmpw7xfims0/autonomous.cpp.o",
-            "src\\autonomous.cpp"
+            "bin/intake.cpp.o",
+            "src\\intake.cpp"
         ],
         "directory": "C:\\Users\\willh\\basement-dweller",
-        "file": "src\\autonomous.cpp"
+        "file": "src\\intake.cpp"
     },
     {
         "arguments": [
@@ -973,11 +973,11 @@
             "-fdiagnostics-color",
             "--std=gnu++17",
             "-o",
-            "C:/Users/willh/AppData/Local/Temp/tmpw7xfims0/intake.cpp.o",
-            "src\\intake.cpp"
+            "bin/autonomous.cpp.o",
+            "src\\autonomous.cpp"
         ],
         "directory": "C:\\Users\\willh\\basement-dweller",
-        "file": "src\\intake.cpp"
+        "file": "src\\autonomous.cpp"
     },
     {
         "arguments": [

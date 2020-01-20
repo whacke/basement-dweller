@@ -23,7 +23,7 @@ void goofyReset()
 void goofyTo(int liftPoint, int speed){
   goofy1.move_absolute(liftPoint, speed);
   while((goofy1.get_position() > liftPoint + 5) || (goofy1.get_position() < liftPoint - 5)) delay(20);
-  goofy1.move(10);
+  goofy1.move(33);
 }
 
 void goofyPIDTo(int liftpoint)
@@ -90,7 +90,7 @@ void goofyTask(void* parameter){
       }
       else if((master.get_digital(DIGITAL_X)))
       {
-        goofy(-63);
+        goofy(-15);
       }
       else
       {

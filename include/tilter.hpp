@@ -3,6 +3,8 @@
 
 void initTilterBrake();
 
+void tilterTune(double newKp);
+
 void tilter(int vel);
 
 void tilterReset();

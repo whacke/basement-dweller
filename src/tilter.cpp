@@ -3,10 +3,15 @@
 Motor tilter1(TILTER, MOTOR_GEARSET_18, 0, MOTOR_ENCODER_DEGREES);
 unsigned int tilterTarget = 0;
 int tiltSpeed = 127;
-double tiltKp = 3.5;
+double tiltKp = 0.5;
 int prevError = 0;
 
 motor_brake_mode_e_t tiltMode = MOTOR_BRAKE_HOLD;
+
+void tilterTune(double newKp)
+{
+  tiltKp = newKp;
+}
 
 void initTilterBrake()
 {
@@ -51,15 +56,14 @@ void tilterTask(void* parameter){
 
     if(speed > tiltSpeed)
       speed = tiltSpeed;
-    if(speed < -tiltSpeed)
-      speed = -tiltSpeed;
+    if(speed < 30 && sp > 1200)
+      speed = 30;
+    //if(tilter1.get_position()< (1920/2))
+    //  speed = tiltSpeed;
 
-    //set motors
+    //set motor
 
-    if(tilter1.get_position()< (1920/2))
-      tilter(tiltSpeed);
-    else
-      tilter(speed);
+    tilter(speed);
 
   }
 }
@@ -68,32 +72,18 @@ void tilterTask(void* parameter){
 void tilterOp(){
   //printf("%f\n", tilter1.get_position());
   tilter1.set_brake_mode(tiltMode);
+  //starts 0, ends 1920
   if(master.get_digital(DIGITAL_X))
     {
-      if(tilterPos() < (1920/2))
-        {
-          tilter(100);
-        }
+      if(tilter1.get_position() < (1920/2))
+        tilter(100);
+      else if(tilter1.get_position() < (1920-(1920/3)) && tilter1.get_position() > (1920/2))
+        tilter(50);
       else
-      {
-        int sp = 1650;
-
-        //read sensors
-        int sv = tilter1.get_position();
-
-        //speed
-        int error = sp-sv;
-        prevError = error;
-        int speed = error*tiltKp;
-        //printf("%f @ %d\n", tilter1.get_position(), speed);
-
-        if(speed > tiltSpeed)
-          speed = tiltSpeed;
         tilter(40);
-      }
     }
   else if(master.get_digital(DIGITAL_B))
     tilter(-127);
-  else
+    else
     tilter(0);
 }

@@ -3,24 +3,21 @@
 void dump()
 {
   intake(0);
+  goofy(-15);
   while(tilterPos() < 1650)
   {
-    if(tilterPos() < (1920/2))
-      tilter(127);
-    else if(tilterPos() < (1920-(1920/3)) && tilterPos() > (1920/2))
+    tilterTune(0.1);
+    if(tilterPos() < (1920-(1920/3)) && tilterPos() > (1920/2))
     {
-      tilter(63);
+
       intake(-20);
       chassisSpeed(0);
+      delay(10);
     }
-    else
-      tilter(40);
   }
-  tilter(0);
-  intake(-40);
-  delay(250);
   intake(-50); //was -30
   basicDrive(1 TL, -30);
+  goofy(0);
 }
 
 
@@ -28,63 +25,33 @@ void autonomous() {
   Task drive_task(driveTask);
   Task turn_task(turnTask);
   Task curve_task(curveTask);
+  Task tilter_task(tilterTask);
 
-
-
-  switch(auton){
-  case 0:
-
-  chassisSpeed(0);
-  intake(-127);
-  delay(1000);
-  goofy(127);
-  delay(500);
-  goofy(-127);
   intake(127);
-  delay(500);
-  basicDrive(0.25 TL, 30); goofy(0); basicDrive(1.7 TL, 50);
+  goofy(-15);
+  drive(2.4 TL, 2);
   goofy(0);
-  delay(250);
-  basicDrive(-0.55 TL, 50);
-  drive(-1 TL, 1);
-  turn(-150, 2);
-  delay(250);
-  intake(-75);
   delay(300);
-  intake(20);
-  basicDrive(0.7 TL, 45);
-  drive(1.1 TL, 1);
+  curve(0.2 TL, 90, 1.75);
+  curve(0.25 TL, 90, 1.75);
+  goofy(-15);
+  curve(0.35 TL, 90, 1.75);
+  curve(0.2 TL, 110, 1.75);
+  delay(500);
+  goofy(0);
+  drive(1.75 TL, 1.95);
+  turn(88, 3);
+  cubeLower();
+  delay(250);
+
+  asyncTilterTo(610);
+  basicDrive(0.5 TL, 40);
+  chassisSpeed(70);
+  delay(1000);
+  asyncTilterTo(1650);
   dump();
 
-  break;
 
-  case 1:
-
-  chassisSpeed(0);
-  intake(-127);
-  delay(1000);
-  goofy(127);
-  delay(500);
-  goofy(-127);
-  intake(127);
-  delay(500);
-  basicDrive(0.25 TL, 30); goofy(0); basicDrive(1.7 TL, 50);
-  goofy(0);
-  delay(250);
-  basicDrive(-0.55 TL, 50);
-  drive(-1 TL, 1);
-  turn(155, 2);
-  delay(250);
-  intake(-75);
-  delay(300);
-  intake(20);
-  basicDrive(0.7 TL, 45);
-  drive(1 TL, 1);
-  dump();
-
-  break;
-
-  }
 
   }
 
