@@ -5,6 +5,8 @@ void initIntakeBrake();
 
 void intake(int vel);
 
+bool cubePresent();
+
 void cubeLower();
 
 void intakeOp();

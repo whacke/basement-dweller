@@ -16,6 +16,16 @@ void intake(int intake){
   intake2.move(intake);
 }
 
+bool cubePresent()
+{
+  if (intakeSense.get_value() > 2800)
+    return false;
+  else
+    return true;
+
+
+}
+
 void cubeLower()
 {
   if(intakeSense.get_value() > 2800)
@@ -26,7 +36,7 @@ void cubeLower()
     delay(20);
     printf("%d\n", intakeSense.get_value());
   }
-  intake(20);
+  intake(40);
 }
 
 bool idleIntake = false;

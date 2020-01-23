@@ -3,6 +3,8 @@
 
 void reset();
 
+int leftPos();
+int rightPos();
 int drivePos();
 
 bool isDriving();
@@ -23,6 +25,8 @@ void turn(int sp, double mod);
 void curve(int d, int t, double m);
 void slowDrive(int sp, int dp, double mod);
 void basicDrive(int distance, int speed);
+void leftSwing(int angle, int speed);
+void rightSwing(int angle, int speed);
 
 
 void chassisSpeed(int vel);

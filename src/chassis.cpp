@@ -50,6 +50,14 @@ void reset(){
   right(0);
 }
 
+int leftPos(){
+  return left1.get_position();
+}
+
+int rightPos(){
+  return right1.get_position();
+}
+
 int drivePos(){
   return (left1.get_position() + right1.get_position())/2;
 }
@@ -209,6 +217,22 @@ void basicDrive(int distance, int speed)
   chassisSpeed(speed);
   while (abs(drivePos()) < distance) delay(20);
   chassisSpeed(0);
+}
+
+void leftSwing(int angle, int speed)
+{
+  reset();
+  while(abs(leftPos()) < angle)
+    left(speed);
+
+}
+
+void rightSwing(int angle, int speed)
+{
+  reset();
+  while(abs(rightPos()) < angle)
+    left(speed);
+
 }
 
 

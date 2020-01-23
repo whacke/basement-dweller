@@ -798,41 +798,6 @@
             "-fdiagnostics-color",
             "--std=gnu++17",
             "-o",
-            "C:/Users/willh/AppData/Local/Temp/tmpw7xfims0/initialize.cpp.o",
-            "src\\initialize.cpp"
-        ],
-        "directory": "C:\\Users\\willh\\basement-dweller",
-        "file": "src\\initialize.cpp"
-    },
-    {
-        "arguments": [
-            "clang++",
-            "-c",
-            "-target",
-            "armv7ar-none-none-eabi",
-            "-fno-ms-extensions",
-            "-fno-ms-compatibility",
-            "-fno-delayed-template-parsing",
-            "-isystemc:\\program files\\pros\\toolchain\\usr\\bin\\../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/include/c++/7.2.1",
-            "-isystemc:\\program files\\pros\\toolchain\\usr\\bin\\../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/include/c++/7.2.1/arm-none-eabi/thumb/v7-ar/fpv3/softfp",
-            "-isystemc:\\program files\\pros\\toolchain\\usr\\bin\\../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/include/c++/7.2.1/backward",
-            "-isystemc:\\program files\\pros\\toolchain\\usr\\bin\\../lib/gcc/arm-none-eabi/7.2.1/include",
-            "-isystemc:\\program files\\pros\\toolchain\\usr\\bin\\../lib/gcc/arm-none-eabi/7.2.1/include-fixed",
-            "-isystemc:\\program files\\pros\\toolchain\\usr\\bin\\../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/include",
-            "-iquote./include",
-            "-iquote./include/./",
-            "-mcpu=cortex-a9",
-            "-mfpu=neon-fp16",
-            "-mfloat-abi=softfp",
-            "-D_POSIX_THREADS",
-            "-D_UNIX98_THREAD_MUTEX_ATTRIBUTES",
-            "-Os",
-            "-funwind-tables",
-            "-ffunction-sections",
-            "-fdata-sections",
-            "-fdiagnostics-color",
-            "--std=gnu++17",
-            "-o",
             "C:/Users/willh/AppData/Local/Temp/tmpw7xfims0/opcontrol.cpp.o",
             "src\\opcontrol.cpp"
         ],
@@ -903,11 +868,11 @@
             "-fdiagnostics-color",
             "--std=gnu++17",
             "-o",
-            "bin/goofy.cpp.o",
-            "src\\goofy.cpp"
+            "bin/intake.cpp.o",
+            "src\\intake.cpp"
         ],
         "directory": "C:\\Users\\willh\\basement-dweller",
-        "file": "src\\goofy.cpp"
+        "file": "src\\intake.cpp"
     },
     {
         "arguments": [
@@ -938,11 +903,46 @@
             "-fdiagnostics-color",
             "--std=gnu++17",
             "-o",
-            "bin/intake.cpp.o",
-            "src\\intake.cpp"
+            "bin/tilter.cpp.o",
+            "src\\tilter.cpp"
         ],
         "directory": "C:\\Users\\willh\\basement-dweller",
-        "file": "src\\intake.cpp"
+        "file": "src\\tilter.cpp"
+    },
+    {
+        "arguments": [
+            "clang++",
+            "-c",
+            "-target",
+            "armv7ar-none-none-eabi",
+            "-fno-ms-extensions",
+            "-fno-ms-compatibility",
+            "-fno-delayed-template-parsing",
+            "-isystemc:\\program files\\pros\\toolchain\\usr\\bin\\../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/include/c++/7.2.1",
+            "-isystemc:\\program files\\pros\\toolchain\\usr\\bin\\../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/include/c++/7.2.1/arm-none-eabi/thumb/v7-ar/fpv3/softfp",
+            "-isystemc:\\program files\\pros\\toolchain\\usr\\bin\\../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/include/c++/7.2.1/backward",
+            "-isystemc:\\program files\\pros\\toolchain\\usr\\bin\\../lib/gcc/arm-none-eabi/7.2.1/include",
+            "-isystemc:\\program files\\pros\\toolchain\\usr\\bin\\../lib/gcc/arm-none-eabi/7.2.1/include-fixed",
+            "-isystemc:\\program files\\pros\\toolchain\\usr\\bin\\../lib/gcc/arm-none-eabi/7.2.1/../../../../arm-none-eabi/include",
+            "-iquote./include",
+            "-iquote./include/./",
+            "-mcpu=cortex-a9",
+            "-mfpu=neon-fp16",
+            "-mfloat-abi=softfp",
+            "-D_POSIX_THREADS",
+            "-D_UNIX98_THREAD_MUTEX_ATTRIBUTES",
+            "-Os",
+            "-funwind-tables",
+            "-ffunction-sections",
+            "-fdata-sections",
+            "-fdiagnostics-color",
+            "--std=gnu++17",
+            "-o",
+            "bin/goofy.cpp.o",
+            "src\\goofy.cpp"
+        ],
+        "directory": "C:\\Users\\willh\\basement-dweller",
+        "file": "src\\goofy.cpp"
     },
     {
         "arguments": [
@@ -1008,10 +1008,10 @@
             "-fdiagnostics-color",
             "--std=gnu++17",
             "-o",
-            "bin/tilter.cpp.o",
-            "src\\tilter.cpp"
+            "bin/initialize.cpp.o",
+            "src\\initialize.cpp"
         ],
         "directory": "C:\\Users\\willh\\basement-dweller",
-        "file": "src\\tilter.cpp"
+        "file": "src\\initialize.cpp"
     }
 ]

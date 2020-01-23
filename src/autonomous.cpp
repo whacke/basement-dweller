@@ -10,14 +10,33 @@ void dump()
     if(tilterPos() < (1920-(1920/3)) && tilterPos() > (1920/2))
     {
 
-      intake(-20);
+      intake(-35); //was -20
       chassisSpeed(0);
       delay(10);
     }
   }
-  intake(-50); //was -30
-  basicDrive(1 TL, -30);
+  intake(-50);
+  asyncTilterTo(0);
+  if(auton == 0)
+    basicDrive(1 TL, -70);
+  else
+    basicDrive(0.6 TL, -50);
   goofy(0);
+}
+
+
+void foldOut()
+{
+  chassisSpeed(-20);
+  intake(-127);
+  delay(500);
+  goofyTo(50, 127);
+  delay(250);
+  goofyTo(0, -127);
+  intake(127);
+  goofy(-15);
+  delay(150);
+
 }
 
 
@@ -27,34 +46,73 @@ void autonomous() {
   Task curve_task(curveTask);
   Task tilter_task(tilterTask);
 
-  intake(127);
-  goofy(-15);
-  drive(2.4 TL, 2);
-  goofy(0);
-  delay(300);
-  curve(0.2 TL, 90, 1.75);
-  curve(0.25 TL, 90, 1.75);
-  goofy(-15);
-  curve(0.35 TL, 90, 1.75);
-  curve(0.2 TL, 110, 1.75);
-  delay(500);
-  goofy(0);
-  drive(1.75 TL, 1.95);
-  turn(88, 3);
-  cubeLower();
-  delay(250);
-
-  asyncTilterTo(610);
-  basicDrive(0.5 TL, 40);
-  chassisSpeed(70);
-  delay(1000);
-  asyncTilterTo(1650);
-  dump();
 
 
+  switch (auton){
+
+    case 0:
+    foldOut();
+    drive(2.37 TL, 1.8);
+    goofy(0);
+    while(cubePresent()) delay(20);
+    curve(0.2 TL, 90, 1.75);
+    curve(0.25 TL, 70, 1.75);
+    goofy(-15);
+    curve(0.25 TL, 35, 1.25);
+    curve(-0.5 TL, 35, 1.25);
+    curve(0.5 TL, 180, 8);
+    curve(0.2 TL, 90, 1.75); //0.2
+    curve(0.25 TL, 70, 2.25); //0.25
+    turn(82, 2);
+    cubeLower();
+    asyncTilterTo(710);
+    basicDrive(0.5 TL, 40);
+    basicDrive(1.5 TL, 70);
+    asyncTilterTo(1650);
+    chassisSpeed(40);
+    dump();
+    break;
+
+    case 1:
+    foldOut();
+    drive(2.37 TL, 1.9);
+    //basicDrive(0.25 TL, 30); goofy(0); basicDrive(1.7 TL, 50);
+    goofy(0);
+    while(cubePresent()) delay(20);
+    basicDrive(-0.55 TL, 50);
+    drive(-1 TL, 1);
+    turn(-152, 2);
+    delay(250);
+    cubeLower();
+    //drive(1.32 TL, 1.75);
+    basicDrive(0.75 TL, 45);
+    chassisSpeed(50);
+    delay(750);
+    asyncTilterTo(1650);
+    dump();
+
+    break;
+
+    case 2:
+    foldOut();
+    drive(2.37 TL, 1.9);
+    //basicDrive(0.25 TL, 30); goofy(0); basicDrive(1.7 TL, 50);
+    goofy(0);
+    delay(250);
+    basicDrive(-0.55 TL, 50);
+    drive(-1 TL, 1);
+    turn(155, 2);
+    delay(250);
+    cubeLower();
+    //drive(1.3 TL, 1.75);
+    basicDrive(0.75 TL, 45);
+    chassisSpeed(50);
+    delay(750);
+    asyncTilterTo(1650);
+    dump();
 
   }
-
+}
 
 /* MY 6 CUBE
 intake(127);
