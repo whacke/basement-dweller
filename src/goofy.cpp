@@ -89,7 +89,7 @@ void goofyTask(void* parameter){
       }
       else if((master.get_digital(DIGITAL_X)))
       {
-        goofy(-15);
+        goofy(-30);
       }
       else
       {

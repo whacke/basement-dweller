@@ -61,9 +61,12 @@ void autonomous() {
     curve(0.25 TL, 35, 1.25);
     curve(-0.5 TL, 35, 1.25);
     curve(0.5 TL, 180, 8);
-    curve(0.2 TL, 90, 1.75); //0.2
-    curve(0.25 TL, 70, 2.25); //0.25
+    rightSwing(180, 75);
+    /*
+    curve(0.2 TL, 90, 1.75);
+    curve(0.25 TL, 70, 2.25);
     turn(82, 2);
+    */
     cubeLower();
     asyncTilterTo(710);
     basicDrive(0.5 TL, 40);
@@ -71,6 +74,7 @@ void autonomous() {
     asyncTilterTo(1650);
     chassisSpeed(40);
     dump();
+
     break;
 
     case 1:
@@ -85,7 +89,7 @@ void autonomous() {
     delay(250);
     cubeLower();
     //drive(1.32 TL, 1.75);
-    basicDrive(0.75 TL, 45);
+    basicDrive(0.5 TL, 45);
     chassisSpeed(50);
     delay(750);
     asyncTilterTo(1650);
@@ -105,11 +109,23 @@ void autonomous() {
     delay(250);
     cubeLower();
     //drive(1.3 TL, 1.75);
-    basicDrive(0.75 TL, 45);
+    basicDrive(0.5 TL, 45);
     chassisSpeed(50);
     delay(750);
     asyncTilterTo(1650);
     dump();
+
+    break;
+
+    case 3:
+    foldOut();
+    chassisSpeed(0);
+    goofyTo(100, 127);
+    basicDrive(-1 TL, 63);
+    delay(250);
+    basicDrive(1 TL, 50);
+
+    break;
 
   }
 }
