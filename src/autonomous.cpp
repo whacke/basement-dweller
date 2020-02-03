@@ -15,7 +15,7 @@ void dump()
       delay(10);
     }
   }
-  intake(-50);
+  intake(-35); //was -50
   asyncTilterTo(0);
   if(auton == 0)
     basicDrive(1 TL, -70);
@@ -60,8 +60,10 @@ void autonomous() {
     goofy(-15);
     curve(0.25 TL, 35, 1.25);
     curve(-0.5 TL, 35, 1.25);
-    curve(0.5 TL, 180, 8);
-    rightSwing(180, 75);
+    //curve(0.5 TL, 180, 8);
+    delay(150);
+    drive(0.6 TL, 1);
+    rightSwing(650, 80); //was 750
     /*
     curve(0.2 TL, 90, 1.75);
     curve(0.25 TL, 70, 2.25);
@@ -88,6 +90,7 @@ void autonomous() {
     turn(-152, 2);
     delay(250);
     cubeLower();
+    intake(20);
     //drive(1.32 TL, 1.75);
     basicDrive(0.5 TL, 45);
     chassisSpeed(50);
@@ -99,6 +102,7 @@ void autonomous() {
 
     case 2:
     foldOut();
+    delay(500);
     drive(2.37 TL, 1.9);
     //basicDrive(0.25 TL, 30); goofy(0); basicDrive(1.7 TL, 50);
     goofy(0);
@@ -118,12 +122,54 @@ void autonomous() {
     break;
 
     case 3:
+
     foldOut();
-    chassisSpeed(0);
-    goofyTo(100, 127);
-    basicDrive(-1 TL, 63);
+    drive(1.8 TL, 1.5);
+    goofy(0);
+    while(cubePresent()) delay(20);
+    turn(40, 0.9);
+    drive(-1.8 TL, 0.7);
+    turn(-47, 0.9);
+    drive(2.2 TL, 1.7);
+    while(cubePresent()) delay(20);
+    //basicDrive(-0.55 TL, 50);
+    cubeLower();
+    asyncTilterTo(910);
+    drive(-1.25 TL, 0.8); //was 1 and 1
+    turn(-144, 1.5);
+    //drive(1.5 TL, 0.8);
+    basicDrive(1 TL, 60);
+    chassisSpeed(50);
     delay(250);
-    basicDrive(1 TL, 50);
+    //chassisSpeed(40);
+    asyncTilterTo(1650);
+    dump();
+
+    break;
+
+    case 4:
+
+    foldOut();
+    drive(1.8 TL, 1.5);
+    goofy(0);
+    while(cubePresent()) delay(20);
+    turn(-40, 1);
+    drive(-1.8 TL, 1);
+    turn(47, 1);
+    drive(2.2 TL, 1.7);
+    while(cubePresent()) delay(20);
+    //basicDrive(-0.55 TL, 50);
+    cubeLower();
+    asyncTilterTo(910);
+    drive(-1.25 TL, 0.8); //was 1 and 1
+    turn(148, 1.5);
+    basicDrive(1 TL, 60);
+    chassisSpeed(50);
+    delay(250);
+
+    //chassisSpeed(40);
+    asyncTilterTo(1650);
+    dump();
 
     break;
 

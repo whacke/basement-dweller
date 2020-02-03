@@ -1,6 +1,6 @@
 #include "main.h"
 
-int auton = 0; //this is like an array
+int auton = 1; //this is like an array
 bool mirror = false;
 
 ADIButton nav('G');
@@ -9,9 +9,9 @@ ADIButton nav('G');
 void autonSelector(void* parameter){
 	delay(200);
 
-	const int autoCount = 4; //this is not like an array
+	const int autoCount = 5; //this is like an array
 	const char *autoNames[autoCount] = {
-		"red 8 cube", "red 5 cube", "blue 5 cube", "big zone"
+		"red 8 cube DONT USE", "red 5 cube", "blue 5 cube", "red 8 cube", "blue 8 cube"
 	};
 
 	lcd::initialize();

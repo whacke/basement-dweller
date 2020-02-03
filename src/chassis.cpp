@@ -231,7 +231,7 @@ void rightSwing(int angle, int speed)
 {
   reset();
   while(abs(rightPos()) < angle)
-    left(speed);
+    right(speed);
 
 }
 

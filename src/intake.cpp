@@ -36,7 +36,7 @@ void cubeLower()
     delay(20);
     printf("%d\n", intakeSense.get_value());
   }
-  intake(40);
+  intake(60);
 }
 
 bool idleIntake = false;
