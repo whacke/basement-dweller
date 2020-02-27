@@ -18,30 +18,30 @@ void intake(int intake){
 
 bool cubePresent()
 {
-  if (intakeSense.get_value() > 2800)
-    return false;
-  else
+  if (intakeSense.get_value() < 2900)
     return true;
+  else
+    return false;
 
 
 }
 
 void cubeLower()
 {
-  if(intakeSense.get_value() > 2800)
-    printf("THE CONDITION SHOULD BE TRUE\n");
-  while(intakeSense.get_value() > 2800)
+ printf("Starting lower...\n");
+  while(cubePresent() == false)
   {
+    printf("NO CUBE\n");
     intake(-63);
     delay(20);
-    printf("%d\n", intakeSense.get_value());
   }
+  delay(150);
   intake(60);
 }
 
 bool idleIntake = false;
 void intakeOp(){
-  printf("%d\n", intakeSense.get_value());
+  printf("%d, %d\n", intakeSense.get_value(), cubePresent());
   if(master.get_digital(DIGITAL_L2))
     intake(127);
   else if(master.get_digital(DIGITAL_L1))

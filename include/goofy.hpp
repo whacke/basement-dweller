@@ -7,6 +7,8 @@ void goofy(int vel);
 
 void goofyReset();
 
+void asyncGoofyTo(int liftPoint, int speed);
+
 void goofyTo(int liftPoint, int speed);
 
 void goofyPIDTo(int liftpoint);

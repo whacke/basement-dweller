@@ -222,6 +222,8 @@ void basicDrive(int distance, int speed)
 void leftSwing(int angle, int speed)
 {
   reset();
+  driveTarget = left2.get_position();
+  driveMode = 4;
   while(abs(leftPos()) < angle)
     left(speed);
 
@@ -230,6 +232,8 @@ void leftSwing(int angle, int speed)
 void rightSwing(int angle, int speed)
 {
   reset();
+  driveTarget = right2.get_position();
+  driveMode = 4;
   while(abs(rightPos()) < angle)
     right(speed);
 

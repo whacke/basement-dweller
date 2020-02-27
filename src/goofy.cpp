@@ -20,10 +20,15 @@ void goofyReset()
   goofy1.tare_position();
 }
 
-void goofyTo(int liftPoint, int speed){
+void asyncGoofyTo(int liftPoint, int speed){
   goofy1.move_absolute(liftPoint, speed);
+}
+
+void goofyTo(int liftPoint, int speed){
+  asyncGoofyTo(liftPoint, speed);
   while((goofy1.get_position() > liftPoint + 5) || (goofy1.get_position() < liftPoint - 5)) delay(20);
 }
+
 
 void goofyPIDTo(int liftpoint)
 {

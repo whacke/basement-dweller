@@ -56,8 +56,8 @@ void tilterTask(void* parameter){
 
     if(speed > tiltSpeed)
       speed = tiltSpeed;
-    if(speed < 60 && tilterTarget > 1200)
-      speed = 60;
+    if(speed < 50 && tilterTarget > 1200)
+      speed = 50;
     //if(tilter1.get_position()< (1920/2))
     //  speed = tiltSpeed;
 
