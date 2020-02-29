@@ -16,6 +16,7 @@ void dump()
       delay(10);
     }
   }
+  if(auton == 5) delay(500);
   intake(-60); //was -50
   asyncTilterTo(0);
     basicDrive(0.6 TL, -50);
@@ -112,36 +113,6 @@ void autonomous() {
 
     case 3:
 
-/*
-    foldOut();
-    drive(1.8 TL, 1.5);
-    goofy(0);
-    while(cubePresent()) delay(20);
-    turn(42, 0.3);
-    drive(-1.9 TL, 0.5);
-    turn(-47, 0.3);
-    //drive(2.2 TL, 1.7);
-
-    //basicDrive(0.5 TL, 50);
-    basicDrive(0.25 TL, 60);
-    basicDrive(1.45 TL, 70);
-    basicDrive(0.25 TL, 35);
-    //basicDrive(0.75 TL, 35);
-    while(cubePresent()) delay(20);
-    //basicDrive(-0.55 TL, 50);
-    cubeLower();
-    asyncTilterTo(910);
-    drive(-1.85 TL, 0.8); //was 1 and 1
-    turn(-142, 1.5);
-    //drive(1.5 TL, 0.8);
-    basicDrive(1 TL, 60);
-    chassisSpeed(50);
-    delay(150);
-    //chassisSpeed(40);
-    asyncTilterTo(1650);
-    dump();
-    */
-
     foldOut();
     drive(1.8 TL, 1.5);
     goofy(0);
@@ -194,8 +165,94 @@ void autonomous() {
 
     case 5:
 
+    //turn(int sp, double mod);
+    //drive(int sp, double mod);
+    //basicDrive(int distance, int speed);
+    //intake(int vel);
+    //goofyTo(int liftPoint, int speed);
+    //asyncGoofyTo(int liftPoint, int speed);
+    //asyncTilterTo(int tiltPoint);
+    //cubeLower();
+    //cubePresent();
+    //while(cubePresent()) delay(20);
+
     foldOut();
     delay(500);
+    basicDrive(0.075 TL, 65);
+    delay(250);
+    turn(-57, 1);
+    cubeLower();
+    intake(0);
+    goofyTo(225, 60);
+    basicDrive(0.76 TL, 50);
+    intake(-44);
+    delay(750);
+    //drive back from first tower
+    basicDrive(0.8 TL, -50);
+    intake(0);
+    delay(250);
+    turn(53, 1);
+    basicDrive(1, -60);
+    chassisSpeed(-60);
+    asyncGoofyTo(0, -60);
+    delay(1500);
+    chassisSpeed(0);
+    //end wall press
+    intake(127);
+    goofy(-20);
+    drive(2 TL, 1.5);
+    while(cubePresent()) delay(20);
+    delay(500);
+    turn(-50, 1);
+    basicDrive(0.3 TL, 60);
+    delay(250);
+    turn(63, 1);
+    basicDrive(0.5 TL, 40);
+    while(cubePresent()) delay(20);
+    delay(200);
+  //basicDrive(0.20 TL, -20);
+    turn(-25, 1);
+    drive(3.1 TL, 2);
+    turn(-20, 1);
+    basicDrive(1, -60);
+    chassisSpeed(40);
+    delay(2500);
+    chassisSpeed(0);
+    basicDrive(0.5 TL, -60);
+    delay(200);
+    turn(-56, 1); //stack turn
+    reset();
+    basicDrive(1, 50);
+    cubeLower();
+    intake(20);
+    chassisSpeed(50);
+    delay(1000);
+
+    //chassisSpeed(40);
+    asyncTilterTo(1700);
+    dump();
+    intake(127);
+    delay(250);
+    turn(57, 1); //turn for wall press
+    basicDrive(1, 40);
+    chassisSpeed(40);
+    delay(2500);
+    chassisSpeed(0);
+    basicDrive(0.3 TL, -50);
+    delay(200);
+    turn(94, 1);
+    delay(250);
+    drive(1 TL, 50);
+    chassisSpeed(40);
+    delay(2500);
+    chassisSpeed(0);
+    drive(0.3 TL, -50);
+    goofyTo(300, 60);
+    intake(-44);
+
+
+
+
 
     break;
 

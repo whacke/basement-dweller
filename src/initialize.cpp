@@ -11,7 +11,7 @@ void autonSelector(void* parameter){
 
 	const int autoCount = 6; //this is not like an array
 	const char *autoNames[autoCount] = {
-		"red 9 cube DONT USE", "red 5 cube", "blue 5 cube", "red 8 cube", "blue 8 cube"
+		"red 9 cube DONT USE", "red 5 cube", "blue 5 cube", "red 8 cube", "blue 8 cube", "prog skills"
 	};
 
 	lcd::initialize();
